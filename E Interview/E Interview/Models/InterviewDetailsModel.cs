@@ -13,7 +13,5 @@ namespace E_Interview.Models
         public string ContactNumber { get; set; }
         [DisplayName("Contact Email")]
         public string ContactEmail { get; set; }
-
-        public string Qualification { get; set; }
     }
 }

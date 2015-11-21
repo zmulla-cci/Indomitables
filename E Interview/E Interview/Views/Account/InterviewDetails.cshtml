@@ -4,6 +4,15 @@
     ViewBag.Title = "Enter Details";
 }
 
+<style>
+    .text-prop {
+        font-size: 12px;
+        font-weight: normal;
+        padding-right: 15px;
+        position: relative;
+        top: 6px;
+    }
+</style>
 <h2 style="text-align: center; padding-bottom: 20px; padding-left: 145px;">Details</h2>
 
 
@@ -40,12 +49,13 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Qualification, new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2">skills</label> 
             <div class="col-md-10">
-                @Html.TextBoxFor(model => model.Qualification, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Qualification)
+                <label class="text-prop"><input type="checkbox" value="" />HTML</label>
+                <label class="text-prop"><input type="checkbox" value="" />CSS</label>
+                <label class="text-prop"><input type="checkbox" value="" />C#</label>
             </div>
-        </div>
+</div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-3">

@@ -10,6 +10,8 @@ namespace E_Interview.Models
         public string QuestionText { get; set; }
         public List<string> Answers { get; set; }
         public int RowID { get; set; }
+        public string ActualAnswer { get; set; }
+        public string UserAnswer { get; set; }
         public bool FirstQuestion { get; set; }
         public bool LastQuestion { get; set; }
     }

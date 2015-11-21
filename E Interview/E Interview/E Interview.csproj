@@ -223,6 +223,7 @@
     <Content Include="Views\Account\InterviewDetails.cshtml" />
     <Content Include="Views\Account\Interview.cshtml" />
     <Content Include="Views\Account\Question.cshtml" />
+    <Content Include="Views\Account\InterviewComplete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
