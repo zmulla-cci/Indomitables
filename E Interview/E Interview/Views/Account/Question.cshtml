@@ -4,10 +4,10 @@
     <ul>
         @foreach (var ans in Model.Answers)
         {
-            <li><label><input type="radio" name="ans" value="@ans"/>@ans</label></li>
+            <li><label><input type="radio" name="ans" value="@ans" />@ans</label></li>
         }
     </ul>
-    <input type="hidden" value="@Model.RowID" id="current-page"/>
+    <input type="hidden" value="@Model.RowID" id="current-page" />
     @if (Model.FirstQuestion != true)
     {
         <button class="navigation-button" data-value="-1">Prev</button>
