@@ -1,10 +1,10 @@
 ﻿@model E_Interview.Models.InterviewDetailsModel
 
 @{
-    ViewBag.Title = "InterviewDetails";
+    ViewBag.Title = "Enter Details";
 }
 
-<h2>InterviewDetails</h2>
+<h2>Details</h2>
 
 
 @using (Html.BeginForm()) 
@@ -12,14 +12,13 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>InterviewDetailsModel</h4>
         <hr />
         @Html.ValidationSummary(true)
 
         <div class="form-group">
             @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Name)
+                @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Name)
             </div>
         </div>
@@ -27,7 +26,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.ContactNumber, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ContactNumber)
+                @Html.TextBoxFor(model => model.ContactNumber, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.ContactNumber)
             </div>
         </div>
@@ -35,7 +34,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.ContactEmail, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ContactEmail)
+                @Html.TextBoxFor(model => model.ContactEmail, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.ContactEmail)
             </div>
         </div>
@@ -43,22 +42,19 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Qualification, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Qualification)
+                @Html.TextBoxFor(model => model.Qualification, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Qualification)
             </div>
         </div>
 
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+            <div class="col-md-offset-2 col-md-3">
+                <input type="submit" value="Start" class="btn btn-default" style="text-align:center"/>
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
