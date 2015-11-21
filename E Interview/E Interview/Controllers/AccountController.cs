@@ -411,5 +411,19 @@ namespace E_Interview.Controllers
             }
         }
         #endregion
+
+        [AllowAnonymous]
+        public ActionResult Interview()
+        {
+            return View();
+        }
+
+        [AllowAnonymous]
+        public ActionResult Question(int page = 1)
+        {
+            InterviewQuestions questions = new InterviewQuestions();
+            Question question = questions.Questions.Where(x => x.RowID == page).FirstOrDefault();
+            return PartialView(question);
+        }
     }
 }

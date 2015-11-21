@@ -1,0 +1,27 @@
+﻿
+<div class="form-horizontal">
+    <p>@Model.QuestionText</p>
+    <ul>
+        @foreach (var ans in Model.Answers)
+        {
+            <li><label><input type="radio" name="ans" value="@ans"/>@ans</label></li>
+        }
+    </ul>
+    <input type="hidden" value="@Model.RowID" id="current-page"/>
+    @if (Model.FirstQuestion != true)
+    {
+        <button class="navigation-button" data-value="-1">Prev</button>
+    }
+
+
+    @if (Model.LastQuestion == true)
+    {
+        <button class="complete-interview">Submit</button>
+    }
+    else
+    {
+        <button class="navigation-button" data-value="1">Next</button>
+    }
+</div>
+
+
