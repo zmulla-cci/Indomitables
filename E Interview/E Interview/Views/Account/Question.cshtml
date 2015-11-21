@@ -1,10 +1,27 @@
-﻿
-<div class="form-horizontal">
+﻿<style>
+    .remove {
+        display:block;
+    }
+</style>
+<div class="form-horizontal" style="background-color:#eeeeee; color:inherit; font-size:14px; font-weight:200; line-height:2.14286; margin-bottom:30px; padding:10px; border-radius:6px;">
     <p>@Model.QuestionText</p>
     <ul>
+        @{
+            string check = "";
+        }
+
         @foreach (var ans in Model.Answers)
         {
-            <li><label><input type="radio" name="ans" value="@ans" />@ans</label></li>
+            if (Model.UserAnswer == ans)
+            {
+                check = "checked='checked'";
+            }
+            else
+            {
+                check = "";
+            }
+            
+            <li class="remove"><label><input type="radio" name="ans" value="@ans" @check/>@ans</label></li>
         }
     </ul>
     <input type="hidden" value="@Model.RowID" id="current-page" />

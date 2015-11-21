@@ -47,7 +47,9 @@
                 display.textContent = minutes + ":" + seconds;
 
                 if (--timer < 0) {
-                    timer = duration;
+                    alert("Time up");
+
+                    location.href = "@Url.Action("InterviewComplete")";
                 }
             }, 1000);
         }
