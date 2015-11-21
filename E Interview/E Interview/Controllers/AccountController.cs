@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using E_Interview.Models;
+using System.Web.Security;
 
 namespace E_Interview.Controllers
 {
@@ -41,7 +42,7 @@ namespace E_Interview.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
+        public ActionResult Login(LoginViewModel model, string returnUrl)
         {
             if (ModelState.IsValid)
             {
@@ -49,7 +50,8 @@ namespace E_Interview.Controllers
                 if (model.UserName.ToLower() == "admin" && model.Password.ToLower() == "admin")
                 {
                     //await SignInAsync(user, model.RememberMe);
-                    return RedirectToLocal(returnUrl);
+                    FormsAuthentication.SetAuthCookie(model.UserName, true);
+                    return RedirectToAction("InterviewDetails", "Account");
                 }
                 else
                 {
@@ -69,6 +71,11 @@ namespace E_Interview.Controllers
             return View();
         }
 
+        [AllowAnonymous]
+        public ActionResult InterviewDetails()
+        {
+            return View();
+        }
         //
         // POST: /Account/Register
         [HttpPost]
