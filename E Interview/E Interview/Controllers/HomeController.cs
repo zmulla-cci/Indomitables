@@ -15,7 +15,7 @@ namespace E_Interview.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "E! Interview is used to track your progress.";
 
             return View();
         }
