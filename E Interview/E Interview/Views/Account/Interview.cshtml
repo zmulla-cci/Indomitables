@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Interview";
+}
+
+<h2>Interview</h2>
+
+<div id="question">
+    @Html.Action("Question")
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("body").on("click", ".navigation-button", function () {
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("Question")" + "?page=" + (parseInt($("#current-page").val()) + parseInt($(this).attr("data-value"))) + "&currentPage=" + parseInt($("#current-page").val()) + "&value=" + $("input[name='ans']:checked").val(),
+                success: function (data) {
+                    $(".form-horizontal").html(data);
+                }
+            });
+        });
+
+        //complete-interview
+
+        $("body").on("click", ".complete-interview", function (){
+            var buttonClick = confirm("This will submit your answer");
+
+            if(buttonClick)
+            {
+                location.href = "@Url.Action("InterviewComplete")" + "?currentPage=" + parseInt($("#current-page").val()) + "&value=" + $("input[name='ans']:checked").val();
+            }
+
+        });
+    });
+</script>
+

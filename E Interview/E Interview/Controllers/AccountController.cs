@@ -411,5 +411,34 @@ namespace E_Interview.Controllers
             }
         }
         #endregion
+
+        [AllowAnonymous]
+        public ActionResult Interview()
+        {
+            InterviewQuestions.SetInterviewQuestions();
+            return View();
+        }
+
+        [AllowAnonymous]
+        public ActionResult Question(int page = 1, int? currentPage = null, string value = "")
+        {
+            if (currentPage != null && value != "undefined" && value != "")
+            {
+                InterviewQuestions.Questions.Where(x => x.RowID == currentPage).FirstOrDefault().UserAnswer = value;
+            }
+            Question question = InterviewQuestions.Questions.Where(x => x.RowID == page).FirstOrDefault();
+            return PartialView(question);
+        }
+
+        [AllowAnonymous]
+        public ActionResult InterviewComplete(int? currentPage = null, string value = "")
+        {
+            if (currentPage != null && value != "undefined" && value != "")
+            {
+                InterviewQuestions.Questions.Where(x => x.RowID == currentPage).FirstOrDefault().UserAnswer = value;
+            }
+            InterviewQuestions.IsComplete = true;
+            return View();
+        }
     }
 }
