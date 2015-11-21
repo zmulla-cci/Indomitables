@@ -15,7 +15,7 @@ namespace E_Interview.Controllers
     [Authorize]
     public class AccountController : Controller
     {
-        public AccountController()
+        public AccountController() 
             : this(new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext())))
         {
         }
